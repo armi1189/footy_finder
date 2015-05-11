@@ -7,11 +7,13 @@ class JoinsController < ApplicationController
 
   def create
     @join = @game.joins.build_with_user(current_user)
-    if @join.save
+    if @game.has_been_joined?(current_user)
+      flash[:notice] = "You cannot join twice"
+      redirect_to "/games/#{@game.id}"
+    else
+      @join.save
       flash[:notice] = "You have joined #{@game.name}"
       redirect_to games_path
-    else
-      render :new
     end
   end
 

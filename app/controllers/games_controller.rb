@@ -8,7 +8,9 @@ class GamesController < ApplicationController
   end
 
   def create
-    Game.create(game_params)
+    @game = Game.new(game_params)
+    @game.user = current_user
+    @game.save
     redirect_to '/games'
   end
 
@@ -16,10 +18,29 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
+  def edit
+    @game = Game.find(params[:id])
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    if @game.user == current_user
+      @game.update(game_params)
+      flash[:notice] = 'Game edited successfully'
+    else
+      flash[:notice] = 'Cannot edit game'
+    end
+    redirect_to '/games'
+  end
+
   def destroy
     @game = Game.find(params[:id])
-    @game.destroy
-    flash[:notice] = 'Game deleted successfully'
+    if @game.user = current_user
+      @game.destroy
+      flash[:notice] = 'Game deleted successfully'
+    else
+      flash[:notice] = 'Cannot delete game'
+    end
     redirect_to '/games'
   end
 

@@ -55,6 +55,8 @@ feature 'game' do
     scenario 'user leaves an existing game' do
       create_game
       click_link 'Game 1'
+      click_link 'Join Game'
+      click_link 'Game 1'
       click_link 'Leave Game'
       expect(page).to have_content('You left the game')
       expect(current_path).to eq '/games'
@@ -67,7 +69,7 @@ feature 'game' do
       click_link 'Game 1'
       click_link 'Edit Game'
       fill_in('Name', with: 'Game 2')
-      click_link('Update Game')
+      click_button('Update Game')
       expect(page).to have_content('Game 2')
       expect(current_path).to eq '/games'
     end
