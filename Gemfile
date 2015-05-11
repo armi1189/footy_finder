@@ -29,6 +29,11 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 
 gem 'simple_form'
 gem 'devise'
+gem "nifty-generators", :group => :development
+gem 'gmaps4rails'
+gem 'mocha'
+gem 'geocoder'
+gem 'protected_attributes'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -52,3 +57,5 @@ group :development, :test do
   gem 'capybara'
 end
 
+
+gem 'mocha', group: :test

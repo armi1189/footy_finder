@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "games#index"
+  resources :locations
   devise_for :users
   resources :games do
     resources :joins
