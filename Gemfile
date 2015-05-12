@@ -33,13 +33,10 @@ gem "nifty-generators", :group => :development
 gem 'gmaps4rails'
 gem 'mocha'
 gem 'geocoder'
-<<<<<<< HEAD
 gem 'bootstrap_form'
-=======
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'gmaps-autocomplete-rails'
->>>>>>> origin/dev
 # gem 'protected_attributes'
 
 # Use ActiveModel has_secure_passwordgit
