@@ -76,6 +76,17 @@ a:visited.btn{
   margin-top: 100px;
 }
 
+.themap {
+  width: 50%;
+  margin-bottom: 50px;
+
+}
+
+.partecipants {
+  list-style-type: none;
+  float: right;
+  width: 50%;
+}
 
 .logo-container img {
   display:block;
