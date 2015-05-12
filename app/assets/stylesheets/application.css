@@ -14,33 +14,6 @@
  *= require bootstrap-datetimepicker
  *= require_tree .
  */
-<<<<<<< HEAD
- 
-.first {
-  color:red;
-}
-
-
-
-.form-horizontal {
-  margin-left: auto;
- margin-right: 100px;
- top: 10;
- position: fixed;
- border: black;
- border-style: solid;
- background: white;
- border-radius: 10px;
- padding: 20px;
- left: 20%;
- top: 40%;
- background: url("file://Users/makerslaptop82/Desktop/Screen Shot 2015-05-12 at 13.10.31.png") repeat;
-}
-
-.control-group {
-
-}
-=======
 
 body { 
   font-family: 'Lato', sans-serif;
@@ -120,4 +93,28 @@ a:visited.btn{
   width:50%;
   margin-bottom: 20px;
 }
->>>>>>> 29cd91a466c47078a6998a905cbd1a0c686a69fe
+
+.first {
+  color:red;
+}
+
+
+
+.form-horizontal {
+  margin-left: auto;
+ margin-right: 100px;
+ top: 10;
+ position: fixed;
+ border: black;
+ border-style: solid;
+ background: white;
+ border-radius: 10px;
+ padding: 20px;
+ left: 20%;
+ top: 40%;
+ background: url("file://Users/makerslaptop82/Desktop/Screen Shot 2015-05-12 at 13.10.31.png") repeat;
+}
+
+.control-group {
+
+}

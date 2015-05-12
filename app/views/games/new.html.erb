@@ -4,13 +4,12 @@
 <div class="control-group">
   <%= f.input :name %>
   <div class="control-group">
-  <%= f.input :address %>
-  <div class="control-group">
+  <%= f.input :address, :input_html =>{:id => 'gmaps-input-address'}, :placeholder => 'Start typing a place...' %>
   <%= f.input :date_time, as: :datetime_picker, wrapper: :ranged_datetime %>
-  </div>
   </div>
   </div>
   <div class="form-actions">
   <%= f.submit 'Create a game' %>
+  </div>
 <% end %>
 </fieldset>

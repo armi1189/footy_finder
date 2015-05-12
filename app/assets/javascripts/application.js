@@ -12,9 +12,24 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require twitter/bootstrap
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
+//= require gmaps-auto-complete
 
 //= require_tree .
+
+jQuery(function() {
+  var completer;
+
+  completer = new GmapsCompleter({
+    inputField: '#gmaps-input-address',
+    errorField: '#gmaps-error'
+  });
+
+  completer.autoCompleteInit({
+    country: "us"
+  });
+});
