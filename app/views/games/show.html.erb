@@ -1,5 +1,9 @@
 <%= @game.name %>
-<%= @game.location %>
+
+<%= @game.address %>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@game.latitude}%2C#{@game.longitude}" %>
+
 <%= @game.date_time %>
 
 <% @game.joins.each do |join| %>
