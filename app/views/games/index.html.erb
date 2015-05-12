@@ -1,9 +1,25 @@
+<p><h2><b>Join an existing game below</b></h2></p>
 <% if @game.any? %>
   <% @game.each do |game| %>
-    <h2> <%= link_to game.name, game_path(game) %></h2>
+
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h3><%= link_to game.name, game_path(game) %></h3>
+      <a href="#" class="btn btn-primary btn-lg">Join <span class="badge">9</span></a>
+      </li>
   <% end %>
 <% else %>
   No games yet
 <% end %>
 
+<p><div class="btn btn-default">
 <%= link_to 'Add a Game', new_game_path %>
+</div></p>
+
+<p></p>
+<div class="well">
+  <p><b>Looking to play a game of football but don’t have anyone to play with?</b></p>
+  <p>Tired of trying to arrange a game with friends who are unreliable?</p>
+
+<p><i>Well then FootyFinder is the app you need. Its easy, all you have to do is jump on to our website and checkout the list of games currently scheduled each informing you of their date, time, location and number of players participating. Once you spot the game(s) you want just simply sign up and join away. Its really that straightforward. If you can’t find an appropriate game then FootyFinder lets you create your own game and once listed you just wait until number of players is fulfilled. </i></p>
+</div>
