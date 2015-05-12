@@ -1,8 +1,8 @@
 <ul class="list-group">
   <li class="list-group-item">
     <h3><%= @game.name %></h3>
-    <h4>Location: <%= @game.address %></h4>
-    <h4><%= @game.date_time %></h4>
+    <h5>Location: <b><%= @game.address %></b></h5>
+      <h5>Date: <b><%= (@game.date_time).strftime("%a, %d %B | %I:%M %p") %></b></h5>
     <% if user_signed_in? %>
 
       <% if @game.is_created_by(current_user) %>
@@ -10,15 +10,31 @@
         <%= link_to 'Edit Game', edit_game_path(@game), class: "btn btn-primary btn-lg" %>
       <% end %>
 
-          <% if current_user.has_joined?(@game) && !(@game.is_full?) %>
+          <% if (@game.is_full?) && (current_user.has_joined?(@game)) %>
+
+            <span class="btn btn-danger btn-lg">Game Full</span>
             <%= link_to game_join_path(@game, @game.joined_by(current_user)), method: :delete, class: "btn btn-primary btn-lg" do %>
               Leave <span class='badge'><%= @game.joins.length %></span>
             <% end %>
+
+          <% elsif @game.is_full? %>
+
+            <span class="btn btn-danger btn-lg">Game Full</span>
+
+          <% elsif current_user.has_joined?(@game) %>
+
+            <%= link_to game_join_path(@game, @game.joined_by(current_user)), method: :delete, class: "btn btn-primary btn-lg" do %>
+              Leave <span class='badge'><%= @game.joins.length %></span>
+            <% end %>
+
           <% else %>
+
             <%= link_to new_game_join_path(@game), class: "btn btn-primary btn-lg" do %>
               Join <span class='badge'><%= @game.joins.length %></span>
             <% end %>
+
           <% end %>  
+
     <% end %>
     <br>
     <br>

@@ -41,15 +41,17 @@ input {
 .notice {
   font-size: 2em;
   font-weight: 900;
-  margin: 0 auto;
-  color: white;
+  text-align: center;
+  color: gold;
+  text-shadow: 3px 2px 3px blue;
 }
 
 .alert {
   font-size: 2em;
   font-weight: 900;
-  margin: 0 auto;
-  color: white;
+  text-align: center;
+  color: gold;
+  text-shadow: 3px 2px 3px blue;
 }
 
 .navbar-inverse,
@@ -85,6 +87,15 @@ a:visited.navbar-brand {
 .btn-primary {
   margin-top: 15px;
 }
+
+.btn-danger {
+  margin-top: 15px;
+}
+
+.btn-warning a {
+  color:white;
+}
+
 
 .btn-warning {
   float: right;
