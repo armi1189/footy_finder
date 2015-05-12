@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
 
   has_many :joins,
       -> { extending WithUserAssociationExtension },
-      dependent: :restrict_with_exception
+      dependent: :destroy
       
   has_one :location
 
