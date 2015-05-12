@@ -13,7 +13,7 @@ class JoinsController < ApplicationController
     else
       @join.save
       flash[:notice] = "You have joined #{@game.name}"
-      redirect_to games_path
+      redirect_to game_path(@game)
     end
   end
 

@@ -1,8 +1,21 @@
+<ul class="list-group">
+<li class="list-group-item">
+
 <%= simple_form_for @game do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.input :date_time, as: :datetime_picker, wrapper: :ranged_datetime %>
+  <legend>Edit Game</legend>
+  <div class="form-inputs">
+    <div class="input-group">
+    <%= f.input :name %> 
+    </div>
+    <div class="input-group">
+    <%= f.input :address %>
+    </div>
+    <div class="input-group">
+    <%= f.input :date_time, as: :datetime_picker, wrapper: :ranged_datetime %>
+    </div>
+  </div>
   <%= f.submit 'Update Game' %>
 <% end %>
+
+</li>
+</ul>

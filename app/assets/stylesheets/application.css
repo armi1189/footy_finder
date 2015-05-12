@@ -10,20 +10,46 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
  *= require jquery-ui
  *= require bootstrap-datetimepicker
  *= require_tree .
+ *= require_self
  */
 
 body { 
   font-family: 'Lato', sans-serif;
   padding-top: 70px; 
   background-image: url("bg.jpg");
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Lato', sans-serif;
 }
 
 img {
   max-width:100%;
+}
+
+input {
+  width:170px;
+  display: block;
+  height: 33px;
+  border-radius: 4px;
+}
+
+.notice {
+  font-size: 2em;
+  font-weight: 900;
+  margin: 0 auto;
+  color: white;
+}
+
+.alert {
+  font-size: 2em;
+  font-weight: 900;
+  margin: 0 auto;
+  color: white;
 }
 
 .navbar-inverse,
@@ -102,10 +128,9 @@ a:visited.btn{
 
 
 .form-horizontal {
-  margin-left: auto;
- margin-right: 100px;
+ margin-left: auto;
+ margin-right: auto;
  top: 10;
- position: fixed;
  border: black;
  border-style: solid;
  background: white;
@@ -113,7 +138,6 @@ a:visited.btn{
  padding: 20px;
  left: 20%;
  top: 40%;
- background: url("file://Users/makerslaptop82/Desktop/Screen Shot 2015-05-12 at 13.10.31.png") repeat;
 }
 
 .control-group {

@@ -1,12 +1,18 @@
-<h2>Log in</h2>
+<ul class="list-group">
+<li class="list-group-item">
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <legend>Log in</legend>
   <div class="form-inputs">
-    <%= f.label :login %>
+    <div class="input-group">
     <%= f.input :login %>
-    <%= f.label :password %>
+    </div>
+    <div class="input-group">
     <%= f.input :password, required: false %>
+    </div>
+    <div class="input-group">
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
   </div>
 
   <div class="form-actions">
@@ -15,3 +21,6 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+</li>
+</ul>
