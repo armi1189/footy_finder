@@ -3,7 +3,7 @@
 <%= @game.date_time %>
 
 <% @game.joins.each do |join| %>
-  <%= join.user.email %>
+  <%= join.user.username %>
 <% end %>
 
 <% if user_signed_in? %>

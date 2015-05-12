@@ -1,8 +1,12 @@
 class Game < ActiveRecord::Base
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
 
   has_many :joins,
       -> { extending WithUserAssociationExtension },
       dependent: :restrict_with_exception
+      
+  has_one :location
 
   belongs_to :user
   has_many :users
