@@ -13,10 +13,10 @@ class GamesController < ApplicationController
     if current_user
       @game.save
       flash[:notice] = 'Game created successfully'
-    else 
+    else
       flash[:notice] = 'Log in to create a game'
     end
-    redirect_to '/games'
+    redirect_to game_path(@game)
   end
 
   def show
@@ -35,7 +35,7 @@ class GamesController < ApplicationController
     else
       flash[:notice] = 'Cannot edit game'
     end
-    redirect_to '/games'
+    redirect_to game_path(@game)
   end
 
   def destroy

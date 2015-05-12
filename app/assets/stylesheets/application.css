@@ -60,18 +60,13 @@ input {
 }
 
 a.navbar-brand,
-a:visited.navbar-brand,
+a:visited.navbar-brand {
+  color: gold;
+}
+
 a.imgold,
 a:visited.imgold {
   color: gold;
-}
-
-a.navbar-brand {
-  color: gold;
-}
-
-a:visited.navbar-brand {
-  color:gold;
 }
 
 .subtitle {
@@ -149,6 +144,16 @@ a:visited.btn{
  padding: 20px;
  left: 20%;
  top: 40%;
+}
+
+.form-actions input.btn {
+  margin: 10px 0;
+  background-color: #3548d8;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .control-group {
