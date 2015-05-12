@@ -1,22 +1,41 @@
-<p><h2><b>Join an existing game below</b></h2></p>
+<section class="subtitle"><h1>Join an existing game below</h1></section>
+<ul class="list-group">
 <% if @game.any? %>
   <% @game.each do |game| %>
 
-  <ul class="list-group">
-    <li class="list-group-item">
+    <li class="list-group-item" style="height: 100px;">
+      <span style="float:left">
       <h3><%= link_to game.name, game_path(game) %></h3>
-      <a href="#" class="btn btn-primary btn-lg">Join <span class="badge">9</span></a>
+      <h5><%= "Location: #{game.address} / Date: #{game.date_time}" %></h5>
+      </span>
+      <div class='join_btn' style="float:right">
+        <% if user_signed_in? %>
+          <% if current_user.has_joined?(game) && !(game.is_full?) %>
+            <%= link_to game_join_path(game, game.joined_by(current_user)), method: :delete, class: "btn btn-primary btn-lg" do %>
+              Leave <span class='badge'><%= game.joins.length %></span>
+            <% end %>
+          <% else %>
+            <%= link_to new_game_join_path(game), class: "btn btn-primary btn-lg" do %>
+              Join <span class='badge'><%= game.joins.length %></span>
+            <% end %>
+          <% end %>  
+        <% end %>
+      </div>
       </li>
   <% end %>
 <% else %>
   No games yet
 <% end %>
+    </ul>  
 
-<p><div class="btn btn-default">
+<p><div class="btn btn-warning btn-lg">
 <%= link_to 'Add a Game', new_game_path %>
 </div></p>
 
 <p></p>
+
+
+
 <div class="well">
   <p><b>Looking to play a game of football but don’t have anyone to play with?</b></p>
   <p>Tired of trying to arrange a game with friends who are unreliable?</p>

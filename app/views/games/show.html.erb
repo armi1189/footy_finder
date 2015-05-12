@@ -1,25 +1,38 @@
-<%= @game.name %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h3>Name: <%= @game.name %></h3>
+    <h4>Location: <%= @game.address %></h4>
+    <h4><%= @game.date_time %></h4>
+    <% if user_signed_in? %>
 
-<%= @game.address %>
+      <% if @game.is_created_by(current_user) %>
+        <%= link_to 'Delete Game', game_path(@game), method: :delete, class: "btn btn-primary btn-lg" %>
+        <%= link_to 'Edit Game', edit_game_path(@game), class: "btn btn-primary btn-lg" %>
+      <% end %>
 
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@game.latitude}%2C#{@game.longitude}" %>
+          <% if current_user.has_joined?(@game) && !(@game.is_full?) %>
+            <%= link_to game_join_path(@game, @game.joined_by(current_user)), method: :delete, class: "btn btn-primary btn-lg" do %>
+              Leave <span class='badge'><%= @game.joins.length %></span>
+            <% end %>
+          <% else %>
+            <%= link_to new_game_join_path(@game), class: "btn btn-primary btn-lg" do %>
+              Join <span class='badge'><%= @game.joins.length %></span>
+            <% end %>
+          <% end %>  
+    <% end %>
+    <br>
+    <br>
 
-<%= @game.date_time %>
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@game.latitude}%2C#{@game.longitude}", class: 'themap' %>
 
-<% @game.joins.each do |join| %>
-  <%= join.user.username %>
-<% end %>
+    <ul class="partecipants">
+      <h3 style="margin-top: 0">Players: <%= @game.joins.length %> </h3>
+      <% @game.joins.each do |join| %>
+        <li><h4><%= join.user.username %></h4></li>
+      <% end %>
+    </ul>
 
-<% if user_signed_in? %>
+  </li>
+</ul>
 
-  <% if @game.is_created_by(current_user) %>
-    <%= link_to 'Delete Game', game_path(@game), method: :delete %>
-    <%= link_to 'Edit Game', edit_game_path(@game) %>
-  <% end %>
 
-  <% if current_user.has_joined?(@game) && !(@game.is_full?) %>
-    <%= link_to 'Leave Game', game_join_path(@game, @game.joined_by(current_user)), method: :delete %>
-  <% else %>
-    <%= link_to "Join Game", new_game_join_path(@game) %>
-  <% end %>
-<% end %>

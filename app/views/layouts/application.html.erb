@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><h1>FootyFinder</h1></title>
+  <title>FootyFinder</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar navbar-default"><h3><b>FootyFinder</b></h3></div>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">FootyFinder</a>
+      </div>
+      <ul class="nav navbar-nav" style="float:right">
+        <% if user_signed_in? %>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'imgold' %></li>
+        <% else %>
+          <li><%= link_to "Sign In", new_user_session_path, class: 'imgold' %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path, class: 'imgold' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 
-      <% if user_signed_in? %>
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-      <% else %>
-      <div class="btn btn-default"><%= link_to "Sign In", new_user_session_path %></div>
-      <div class="btn btn-default"><%= link_to "Sign Up", new_user_registration_path %></div>
-  
-  <% end %>
+  <div class="container">
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
+  <div class="logo-container">
+    <%= image_tag 'logo.png' %>
+  </div>
+
   <%= yield %>
+  </div>
 
 </body>
 </html>
