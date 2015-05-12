@@ -5,13 +5,17 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    @game.build_location
   end
 
   def create
     @game = Game.new(game_params)
     @game.user = current_user
-    @game.save
+    if current_user
+      @game.save
+      flash[:notice] = 'Game created successfully'
+    else 
+      flash[:notice] = 'Log in to create a game'
+    end
     redirect_to '/games'
   end
 
