@@ -5,6 +5,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @location = Location.new
   end
 
   def create
@@ -47,5 +48,9 @@ class GamesController < ApplicationController
   private
   def game_params
     params.require(:game).permit(:name, :location, :date_time)
+  end
+
+  def location_params
+    params.require(:location).permit(:address, :latitude, :longitude)
   end
 end

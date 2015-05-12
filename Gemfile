@@ -33,7 +33,7 @@ gem "nifty-generators", :group => :development
 gem 'gmaps4rails'
 gem 'mocha'
 gem 'geocoder'
-gem 'protected_attributes'
+# gem 'protected_attributes'
 
 # Use ActiveModel has_secure_passwordgit
 # gem 'bcrypt', '~> 3.1.7'

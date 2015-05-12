@@ -16,7 +16,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(params[:location])
+    @location = Location.new(location_params)
     if @location.save
       redirect_to @location, :notice => "Successfully created location."
     else
@@ -30,7 +30,7 @@ class LocationsController < ApplicationController
 
   def update
     @location = Location.find(params[:id])
-    if @location.update_attributes(params[:location])
+    if @location.update_attributes(location_params)
       redirect_to @location, :notice  => "Successfully updated location."
     else
       render :action => 'edit'
@@ -41,5 +41,9 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @location.destroy
     redirect_to locations_url, :notice => "Successfully destroyed location."
+  end
+
+   def location_params
+    params.require(:location).permit(:address, :latitude, :longitude)
   end
 end
