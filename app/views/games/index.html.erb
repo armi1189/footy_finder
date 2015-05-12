@@ -1,9 +1,44 @@
+<section class="subtitle"><h1>Join an existing game below</h1></section>
+<ul class="list-group">
 <% if @game.any? %>
   <% @game.each do |game| %>
-    <h2> <%= link_to game.name, game_path(game) %></h2>
+
+    <li class="list-group-item" style="height: 100px;">
+      <span style="float:left">
+      <h3><%= link_to game.name, game_path(game) %></h3>
+      <h5><%= "Location: #{game.address} / Date: #{game.date_time}" %></h5>
+      </span>
+      <div class='join_btn' style="float:right">
+        <% if user_signed_in? %>
+          <% if current_user.has_joined?(game) && !(game.is_full?) %>
+            <%= link_to game_join_path(game, game.joined_by(current_user)), method: :delete, class: "btn btn-primary btn-lg" do %>
+              Leave <span class='badge'><%= game.joins.length %></span>
+            <% end %>
+          <% else %>
+            <%= link_to new_game_join_path(game), class: "btn btn-primary btn-lg" do %>
+              Join <span class='badge'><%= game.joins.length %></span>
+            <% end %>
+          <% end %>  
+        <% end %>
+      </div>
+      </li>
   <% end %>
 <% else %>
   No games yet
 <% end %>
+    </ul>  
 
+<p><div class="btn btn-warning btn-lg">
 <%= link_to 'Add a Game', new_game_path %>
+</div></p>
+
+<p></p>
+
+
+
+<div class="well">
+  <p><b>Looking to play a game of football but don’t have anyone to play with?</b></p>
+  <p>Tired of trying to arrange a game with friends who are unreliable?</p>
+
+<p><i>Well then FootyFinder is the app you need. Its easy, all you have to do is jump on to our website and checkout the list of games currently scheduled each informing you of their date, time, location and number of players participating. Once you spot the game(s) you want just simply sign up and join away. Its really that straightforward. If you can’t find an appropriate game then FootyFinder lets you create your own game and once listed you just wait until number of players is fulfilled. </i></p>
+</div>

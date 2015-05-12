@@ -10,7 +10,76 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require_self
  *= require bootstrap-datetimepicker
  *= require_tree .
- *= require_self
  */
+
+
+body { 
+  font-family: 'Lato', sans-serif;
+  padding-top: 70px; 
+  background-image: url("bg.jpg");
+}
+
+img {
+  max-width:100%;
+}
+
+.navbar-inverse,
+.navbar-nav>li>a {
+  color: gold;
+}
+
+a.navbar-brand,
+a:visited.navbar-brand,
+a.imgold,
+a:visited.imgold {
+  color: gold;
+}
+
+a.navbar-brand {
+  color: gold;
+}
+
+a:visited.navbar-brand {
+  color:gold;
+}
+
+.subtitle {
+  color: gold;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #3548d8;
+  padding: 1px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.btn-primary {
+  margin-top: 15px;
+}
+
+.btn-warning {
+  float: right;
+}
+
+a.btn {
+  color: #fff;
+}
+
+a:visited.btn{
+  color: #fff;
+}
+
+.well {
+  margin-top: 100px;
+}
+
+
+.logo-container img {
+  display:block;
+  margin: 0 auto;
+  width:50%;
+  margin-bottom: 20px;
+}

@@ -3,6 +3,7 @@
   <%= f.input :name %>
   <%= f.label :address %>
   <%= f.input :address %>
+  <%= f.input :address, :input_html =>{:id => 'gmaps-input-address'}, :placeholder => 'Start typing a place...' %>
   <%= f.input :date_time, as: :datetime_picker, wrapper: :ranged_datetime %>
   <%= f.submit 'Create a game' %>
 <% end %>
