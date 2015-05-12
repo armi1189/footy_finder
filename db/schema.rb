@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512083153) do
+ActiveRecord::Schema.define(version: 20150512084956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +19,14 @@ ActiveRecord::Schema.define(version: 20150512083153) do
   create_table "games", force: :cascade do |t|
     t.string   "name"
     t.datetime "date_time"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.integer  "location_id"
+    t.string   "address"
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
-  add_index "games", ["location_id"], name: "index_games_on_location_id", using: :btree
   add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
 
   create_table "joins", force: :cascade do |t|
@@ -47,6 +48,8 @@ ActiveRecord::Schema.define(version: 20150512083153) do
     t.integer  "game_id"
   end
 
+  add_index "locations", ["game_id"], name: "index_locations_on_game_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -67,8 +70,8 @@ ActiveRecord::Schema.define(version: 20150512083153) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
-  add_foreign_key "games", "locations"
   add_foreign_key "games", "users"
   add_foreign_key "joins", "games"
   add_foreign_key "joins", "users"
+  add_foreign_key "locations", "games"
 end
