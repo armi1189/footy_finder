@@ -14,6 +14,28 @@
  *= require_tree .
  *= require_self
  */
+ 
 .first {
   color:red;
+}
+
+
+
+.form-horizontal {
+  margin-left: auto;
+ margin-right: 100px;
+ top: 10;
+ position: fixed;
+ border: black;
+ border-style: solid;
+ background: white;
+ border-radius: 10px;
+ padding: 20px;
+ left: 20%;
+ top: 40%;
+ background: url("file://Users/makerslaptop82/Desktop/Screen Shot 2015-05-12 at 13.10.31.png") repeat;
+}
+
+.control-group {
+
 }
