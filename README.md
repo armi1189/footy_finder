@@ -2,12 +2,12 @@
 ===========
 This is our first project done as a 'big team' at Makers Academy (March 2015 cohort)! Our team of 6 consisted of Andrea, Guillaume, Jacob, Maciek, Massud and Paul.
 
-![Andrea](https://avatars3.githubusercontent.com/u/10290603?v=3&s=192)
-![Guillaume](https://avatars0.githubusercontent.com/u/10553003?v=3&s=192)
-![Jacob](https://avatars1.githubusercontent.com/u/7001177?v=3&s=192)
-![Maciek](https://avatars2.githubusercontent.com/u/11005277?v=3&s=192)
-![Massud](https://avatars3.githubusercontent.com/u/10505910?v=3&s=192)
-![Paul](https://avatars3.githubusercontent.com/u/10485555?v=3&s=192)
+![Andrea](https://avatars3.githubusercontent.com/u/10290603?v=3&s=96)
+![Guillaume](https://avatars0.githubusercontent.com/u/10553003?v=3&s=96)
+<!-- ![Jacob](https://avatars1.githubusercontent.com/u/7001177?v=3&s=96) -->
+![Maciek](https://avatars2.githubusercontent.com/u/11005277?v=3&s=96)
+![Massud](https://avatars3.githubusercontent.com/u/10505910?v=3&s=96)
+![Paul](https://avatars3.githubusercontent.com/u/10485555?v=3&s=96)
 
 Footy finder is a football application that allows a user to either organise friendly football games or find nearby friendly matches that he/she can take part in.
 
